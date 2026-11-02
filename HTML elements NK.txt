@@ -1,0 +1,62 @@
+HTML elements used in my CV - Narmin Khalilova
+(each line of code, then what it does in my CV)
+
+STRUCTURE
+<!DOCTYPE html>  -> says the page is HTML5
+<html lang="en">  -> root of the page, language is English
+<meta charset="UTF-8">  -> so special characters show up correctly
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  -> page fits the screen width on phones
+<title>Curriculum Vitae: Narmin Khalilova</title>  -> text in the browser tab
+<body>  -> everything visible on the page is inside it
+
+HEADINGS
+<h1>Curriculum Vitae: Narmin KHALILOVA</h1>  -> main title at the top, only one
+<h2>Education and degrees</h2>  -> section title (same for Professional experience, Additional skills, Other experiences and hobbies)
+<h3>Languages</h3>  -> smaller title inside the skills section
+
+TOP PART (info + photo side by side)
+<table>  -> table with one row, just to put the photo next to my info
+<tr>  -> a row
+<td>  -> left cell with my info
+<address>  -> my contact info block
+Born on <time datetime="2007-01-30">30 January 2007</time> (Baku)<br>  -> birth date, datetime is the same date in computer format, br goes to the next line
+<a href="mailto:n.khalilova@ufaz.az">n.khalilova@ufaz.az</a>  -> my email, click opens the mail app
+</address>  -> end of contact info
+<td>  -> right cell for the photo
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="photo.jpg" alt="Photo of Narmin Khalilova" width="150">  -> my photo, alt is the text if it doesnt load, width 150 makes it small, the &nbsp; are empty spaces so the photo is not stuck to the text
+
+<hr>  -> line between sections (used after each section)
+
+EDUCATION TABLE
+<table>  -> the education table
+<caption>Academic background</caption>  -> title of the table
+<thead>  -> header part of the table
+<th>Period</th>  -> header cell for the dates column
+<th>Diploma / Institution</th>  -> header cell for the diploma column
+<tbody>  -> the rows with the data
+<td><time datetime="2024">2024</time> – present</td>  -> normal cell with the date
+<td><strong>Bachelor in Computer Science</strong></td>  -> cell with the degree, strong makes it bold and important
+<td><strong>High school diploma</strong>, <em>Lyceum No. 20, Baku</em></td>  -> em makes the school name italic with stress
+<td>Mathematics and physics track (<i>Lyceum No. 20, Baku</i>)</td>  -> i is italic just for looks
+
+EXPERIENCE (numbered list)
+<ol>  -> numbered list, 1 is the most recent job
+<li><time datetime="2025-07">July</time> – <time datetime="2025-09">September 2025</time>: <b>Web developer intern</b> at <a href="https://www.turkishairlines.com">Turkish Airlines</a>, building and maintaining the company's website.</li>  -> one job, li is one item, b makes the job title bold, a links to the company site
+(the second li is the IT support job, same thing)
+
+SKILLS (bullet list)
+<ul>  -> list with bullets
+<li>Office software (Microsoft Office Suite)</li>  -> one skill
+<li>Web markup: <abbr title="HyperText Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr> (learning)</li>  -> abbr shows the full name when you hover on HTML or CSS
+
+LANGUAGES
+<dl>  -> list of terms and their description
+<dt>Russian</dt>  -> the term (the language)
+<dd>Native speaker</dd>  -> the description of the term (my level)
+(same for Azerbaijani and English)
+
+HOBBIES AND END
+<li>Member of the student programming club (<time datetime="2023">2023</time> – present)</li>  -> hobbies in a ul, time for the year
+<p>More of my work: <a href="https://github.com/narminkhalilova">GitHub profile</a></p>  -> p is a paragraph, here the last line with a link to my github
+</body>  -> end of the visible part
+</html>  -> end of the page
