@@ -1,54 +1,82 @@
 <!DOCTYPE html>
+<!-- says the page is HTML5 -->
+<!-- root of the page, language is English -->
 <html lang="en">
 <head>
+<!-- so special characters show up correctly -->
 <meta charset="UTF-8">
+<!-- page fits the screen width on phones -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- text in the browser tab -->
 <title>Curriculum Vitae: Narmin Khalilova</title>
 </head>
+<!-- everything visible on the page is inside it -->
 <body>
 
+<!-- main title at the top, only one -->
 <h1>Curriculum Vitae: Narmin KHALILOVA</h1>
 
+<!-- TOP PART: table with one row, just to put the photo next to my info -->
 <table>
+<!-- a row -->
 <tr>
+<!-- left cell with my info -->
 <td>
+<!-- my contact info block -->
 <address>
+<!-- birth date, datetime is the same date in computer format, br goes to the next line -->
 Born on <time datetime="2007-01-30">30 January 2007</time> (Baku)<br>
 12 Nizami Street<br>
 AZ1000 Baku, Azerbaijan<br>
 +994 70 323 22 12<br>
+<!-- my email, click opens the mail app -->
 <a href="mailto:n.khalilova@ufaz.az">n.khalilova@ufaz.az</a>
+<!-- end of contact info -->
 </address>
 </td>
+<!-- right cell for the photo -->
 <td>
+<!-- my photo, alt is the text if it doesnt load, width 150 makes it small, the &nbsp; are empty spaces so the photo is not stuck to the text -->
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="photo.jpg" alt="Photo of Narmin Khalilova" width="150">
 </td>
 </tr>
 </table>
 
+<!-- line between sections (used after each section) -->
 <hr>
 
+<!-- section title (same for Professional experience, Additional skills, Other experiences and hobbies) -->
 <h2>Education and degrees</h2>
 
+<!-- EDUCATION TABLE: the education table -->
 <table>
+<!-- title of the table -->
 <caption>Academic background</caption>
+<!-- header part of the table -->
 <thead>
 <tr>
+<!-- header cell for the dates column -->
 <th>Period</th>
+<!-- header cell for the diploma column -->
 <th>Diploma / Institution</th>
 </tr>
 </thead>
+<!-- the rows with the data -->
 <tbody>
 <tr>
+<!-- normal cell with the date -->
 <td><time datetime="2024">2024</time> – present</td>
+<!-- cell with the degree, strong makes it bold and important -->
 <td><strong>Bachelor in Computer Science</strong></td>
 </tr>
 <tr>
 <td><time datetime="2024">2024</time></td>
+<!-- em makes the school name italic with stress -->
 <td><strong>High school diploma</strong>, <em>Lyceum No. 20, Baku</em></td>
 </tr>
 <tr>
 <td><time datetime="2022">2022</time> – <time datetime="2024">2024</time></td>
+<!-- i is italic just for looks -->
 <td>Mathematics and physics track (<i>Lyceum No. 20, Baku</i>)</td>
 </tr>
 </tbody>
@@ -58,8 +86,11 @@ AZ1000 Baku, Azerbaijan<br>
 
 <h2>Professional experience</h2>
 
+<!-- EXPERIENCE: numbered list, 1 is the most recent job -->
 <ol>
+<!-- one job, li is one item, b makes the job title bold, a links to the company site -->
 <li><time datetime="2025-07">July</time> – <time datetime="2025-09">September 2025</time>: <b>Web developer intern</b> at <a href="https://www.turkishairlines.com">Turkish Airlines</a>, building and maintaining the company's website.</li>
+<!-- the second job (IT support), same thing -->
 <li><time datetime="2024-06">June</time> – <time datetime="2024-08">August 2024</time>: <b>IT support assistant</b> at a local library, helping visitors with computers and the internet.</li>
 </ol>
 
@@ -67,17 +98,24 @@ AZ1000 Baku, Azerbaijan<br>
 
 <h2>Additional skills</h2>
 
+<!-- SKILLS: list with bullets -->
 <ul>
+<!-- one skill -->
 <li>Office software (Microsoft Office Suite)</li>
 <li>Programming basics: Python, JavaScript, C++</li>
+<!-- abbr shows the full name when you hover on HTML or CSS -->
 <li>Web markup: <abbr title="HyperText Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr> (learning)</li>
 <li>Tools: Git, Visual Studio Code</li>
 </ul>
 
+<!-- smaller title inside the skills section -->
 <h3>Languages</h3>
 
+<!-- LANGUAGES: list of terms and their description -->
 <dl>
+<!-- the term (the language) -->
 <dt>Russian</dt>
+<!-- the description of the term (my level), same for Azerbaijani and English -->
 <dd>Native speaker</dd>
 <dt>Azerbaijani</dt>
 <dd>Intermediate</dd>
@@ -89,13 +127,18 @@ AZ1000 Baku, Azerbaijan<br>
 
 <h2>Other experiences and hobbies</h2>
 
+<!-- HOBBIES: list with bullets -->
 <ul>
+<!-- hobbies in a ul, time for the year -->
 <li>Member of the student programming club (<time datetime="2023">2023</time> – present)</li>
 <li>Volunteering at a local charity</li>
 <li>Psychoanalysis</li>
 </ul>
 
+<!-- p is a paragraph, here the last line with a link to my github -->
 <p>More of my work: <a href="https://github.com/narminkhalilova">GitHub profile</a></p>
 
+<!-- end of the visible part -->
 </body>
+<!-- end of the page -->
 </html>
