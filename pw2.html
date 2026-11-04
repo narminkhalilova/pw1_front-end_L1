@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<!-- html5 -->
+<html lang="en">
+<head>
+<!-- characters -->
+<meta charset="UTF-8">
+<!-- phone screen -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Curriculum Vitae of Narmin Khalilova, Computer Science student in Baku, Azerbaijan.">
+<meta name="author" content="Narmin Khalilova">
+<!-- tab name -->
+<title>Curriculum Vitae: Narmin Khalilova</title>
+<style>
+/* base text */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #333333;
+    line-height: 1.6;
+    font-size: 16px;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* first letter bigger */
+h1::first-letter {
+    font-size: 1.4em;
+    color: #0056b3;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #222222;
+    text-transform: uppercase;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.3rem;
+    color: #0056b3;
+    border-bottom: 1px dashed #cccccc;
+    padding-bottom: 4px;
+    margin-top: 30px;
+}
+
+h3 {
+    font-size: 1.1rem;
+    color: #444444;
+    margin-top: 15px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+/* less space after headings */
+h2 + p, h3 + p {
+    margin-top: 5px;
+}
+
+/* links */
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+/* email link */
+a[href^="mailto:"] {
+    font-weight: bold;
+    color: #007700;
+}
+
+/* mouse over */
+a:hover {
+    text-decoration: underline;
+    color: #003366;
+}
+
+/* keyboard focus */
+a:focus {
+    outline: 2px dashed #0056b3;
+    background-color: #e6f0fa;
+}
+
+/* lists */
+ul, ol {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+/* only the list inside nav */
+nav > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+nav > ul > li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/* first item bold */
+li:first-child {
+    font-weight: 600;
+}
+
+/* tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 0.95rem;
+}
+
+caption {
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #555555;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f4f7;
+    color: #222222;
+}
+
+/* every second row */
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* id */
+#contact {
+    border-top: 1px solid #eeeeee;
+    padding-top: 10px;
+}
+
+/* form */
+fieldset {
+    border: 1px solid #cccccc;
+    padding: 15px;
+    border-radius: 4px;
+    background-color: #fdfdfd;
+}
+
+legend {
+    font-weight: bold;
+    color: #0056b3;
+    padding: 0 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* form fields */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* field when you click in it */
+input:focus, textarea:focus, select:focus {
+    border-color: #0056b3;
+    outline: none;
+    background-color: #fffef9;
+}
+
+/* buttons */
+button[type="submit"], input[type="reset"] {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #003d82;
+}
+
+input[type="reset"] {
+    background-color: #6c757d;
+}
+
+input[type="reset"]:hover {
+    background-color: #5a6268;
+}
+
+/* photo and caption */
+figure {
+    margin: 10px 0;
+}
+
+img {
+    border: 1px solid #cccccc;
+    padding: 2px;
+    background-color: #ffffff;
+}
+
+figcaption {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #666666;
+    margin-top: 4px;
+}
+
+/* quotes */
+q {
+    font-style: italic;
+    color: #444444;
+}
+
+cite {
+    font-weight: bold;
+    color: #222222;
+}
+</style>
+</head>
+<!-- all visible stuff -->
+<body>
+
+<header>
+<!-- main title -->
+<h1>Curriculum Vitae: Narmin KHALILOVA</h1>
+<figure>
+<img src="photo.jpg" alt="Photo of Narmin Khalilova" width="150">
+<figcaption>Narmin Khalilova, Baku</figcaption>
+</figure>
+<!-- contact info -->
+<address>
+<!-- date in computer format -->
+Born on <time datetime="2007-01-30">30 January 2007</time> (Baku)<br>
+12 Nizami Street, AZ1000 Baku, Azerbaijan<br>
+Phone: +994 70 323 22 12<br>
+<!-- email link -->
+<a href="mailto:n.khalilova@ufaz.az">n.khalilova@ufaz.az</a>
+</address>
+</header>
+
+<!-- menu with links to the parts of the page -->
+<nav>
+<ul>
+<li><a href="#education">Education</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- main part -->
+<main>
+
+<!-- education part -->
+<section id="education">
+<h2>Education and degrees</h2>
+<!-- education table -->
+<table>
+<!-- table title -->
+<caption>Academic background</caption>
+<!-- table header -->
+<thead>
+<tr><th scope="col">Period</th><th scope="col">Diploma / Institution</th></tr>
+</thead>
+<!-- table rows -->
+<tbody>
+<tr><td><time datetime="2024">2024</time> – present</td><td><strong>Bachelor in Computer Science</strong></td></tr>
+<tr><td><time datetime="2024">2024</time></td><td><strong>High school diploma</strong>, <em>Lyceum No. 20, Baku</em></td></tr>
+<tr><td><time datetime="2022">2022</time> – <time datetime="2024">2024</time></td><td>Mathematics and physics track (<em>Lyceum No. 20, Baku</em>)</td></tr>
+</tbody>
+<!-- table bottom -->
+<tfoot>
+<tr><td colspan="2">Total: 2 diplomas, 1 ongoing degree</td></tr>
+</tfoot>
+</table>
+</section>
+
+<!-- line between parts -->
+<hr>
+
+<!-- experience part -->
+<section id="experience">
+<h2>Professional experience</h2>
+<!-- one job -->
+<article>
+<h3>Web developer intern</h3>
+<p><time datetime="2025-07">July</time> – <time datetime="2025-09">September 2025</time> at <a href="https://www.turkishairlines.com">Turkish Airlines</a>, building and maintaining the company's website.</p>
+<!-- quote -->
+<p>Reference: <q>Reliable and quick-learning intern.</q> — <cite>Team lead</cite></p>
+</article>
+<article>
+<h3>IT support assistant</h3>
+<p><time datetime="2024-06">June</time> – <time datetime="2024-08">August 2024</time> at a local library, helping visitors with computers and the internet.</p>
+</article>
+</section>
+
+<hr>
+
+<!-- skills part -->
+<section id="skills">
+<h2>Additional skills</h2>
+<h3>Technical skills</h3>
+<!-- skills list -->
+<ul>
+<li>Office software (Microsoft Office Suite)</li>
+<li>Programming basics: Python, JavaScript, C++</li>
+<!-- shows the full name on hover -->
+<li>Web markup: <abbr title="HyperText Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr> (learning)</li>
+<li>Tools: Git, Visual Studio Code</li>
+</ul>
+
+<!-- skill bars -->
+<p>Python: <meter value="5" max="10">5/10</meter> ·
+HTML: <progress value="40" max="100">40%</progress> ·
+Git: <meter value="3" low="4" max="10">3/10</meter></p>
+
+<h3>Languages</h3>
+<!-- languages list -->
+<dl>
+<dt>Russian</dt><dd>Native speaker</dd>
+<dt>Azerbaijani</dt><dd>Intermediate</dd>
+<dt>English</dt><dd>Fluent</dd>
+</dl>
+</section>
+
+<hr>
+
+<section>
+<h2>Other experiences and hobbies</h2>
+<ul>
+<li>Member of the student programming club (<time datetime="2023">2023</time> – present)</li>
+<li>Volunteering at a local charity</li>
+<li>Psychoanalysis</li>
+</ul>
+<!-- opens and closes -->
+<details>
+<summary>My favourite quote</summary>
+<p><q>"Simplifying the world into ready-made schemes and stereotypes is a way to reject freedom of choice and thought."</q> — <cite>Albert Camus</cite></p>
+</details>
+</section>
+
+<hr>
+
+<section id="contact">
+<h2>Contact me</h2>
+<!-- contact form -->
+<form action="mailto:n.khalilova@ufaz.az" method="post" enctype="text/plain">
+<fieldset>
+<legend>Send me a message</legend>
+<p>
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" placeholder="Your name" required>
+</p>
+<p>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" placeholder="you@example.com">
+</p>
+<p>
+<label for="level">Reason:</label>
+<select id="level" name="reason">
+<option>Job offer</option>
+<option>Internship</option>
+<option>Other</option>
+</select>
+</p>
+<p>
+<label for="msg">Message:</label>
+<textarea id="msg" name="message" rows="4" cols="40">Hello Narmin,</textarea>
+</p>
+<p>
+<button type="submit">Send</button>
+<input type="reset" value="Clear">
+</p>
+</fieldset>
+</form>
+</section>
+
+</main>
+
+<!-- side info -->
+<aside>
+<h3>Quick facts</h3>
+<p>Age: 19 · City: Baku · Status: student</p>
+</aside>
+
+<!-- bottom of the page -->
+<footer>
+<p>More of my work: <a href="https://github.com/narminkhalilova">GitHub profile</a></p>
+<p>&copy; <time datetime="2026">2026</time> Narmin Khalilova. Last updated in <time datetime="2026-11">November 2026</time>.</p>
+</footer>
+
+</body>
+</html>
