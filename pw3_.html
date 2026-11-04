@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- needed so the media queries work on a phone -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My first CSS Grid layout</title>
+<style>
+/* styles for both desktop and mobile */
+
+/* body is the grid container */
+body {
+  /* remove the default margin */
+  margin: 0;
+  padding: 0;
+  /* whole window */
+  width: 100vw;
+  height: 100vh;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  /* grey, shows in the gaps */
+  background-color: #999999;
+}
+
+/* the 5 grid items, simple style to see them */
+header, nav, article, aside, footer {
+  /* padding stays inside the box size */
+  box-sizing: border-box;
+  padding: 8px;
+  /* round corners */
+  border-radius: 8px;
+}
+
+header, footer {
+  background-color: #fdeebb;
+}
+
+nav, aside {
+  background-color: #ccccff;
+}
+
+article {
+  background-color: #dbda8a;
+}
+
+/* titles a bit smaller, no big top margin */
+header h1, article h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.1em;
+}
+
+nav ul {
+  margin: 0;
+  /* so the bullets are inside the box */
+  padding-left: 18px;
+}
+
+p {
+  margin: 0 0 8px 0;
+}
+
+/* training image, just to try float */
+article img {
+  float: right;
+  width: 90px;
+  margin: 0 0 8px 8px;
+}
+
+/* quote attempt, idk if this looks ok */
+article blockquote {
+  margin: 0 0 8px 0;
+  padding-left: 10px;
+  border-left: 3px solid #999999;
+}
+
+
+/* DESKTOP: window at least 640px wide, 3 columns and 3 rows */
+@media (min-width: 640px) {
+  body {
+    /* body becomes the grid */
+    display: grid;
+    box-sizing: border-box;
+    /* space around the grid */
+    padding: 10px;
+    /* space between the boxes */
+    gap: 10px;
+
+    /* nav and aside same width (min 120px so text is readable, max 200px), article takes the rest */
+    grid-template-columns: minmax(120px, 200px) 1fr minmax(120px, 200px);
+
+    /* header and footer min 60px high, middle row takes the rest */
+    grid-template-rows: minmax(60px, auto) 1fr minmax(60px, auto);
+
+    /* layout with names */
+    grid-template-areas:
+      "header  header   header"
+      "nav     article  aside"
+      "footer  footer   footer";
+  }
+
+  /* put each item in its area */
+  header  { grid-area: header; }
+  nav     { grid-area: nav; }
+  article { grid-area: article; }
+  aside   { grid-area: aside; }
+  footer  { grid-area: footer; }
+
+  /* same thing with line numbers (not used):
+     header  { grid-row: 1; grid-column: 1 / 4; }
+     nav     { grid-row: 2; grid-column: 1 / 2; }
+     article { grid-row: 2; grid-column: 2 / 3; }
+     aside    { grid-row: 2; grid-column: 3 / 4; }
+     footer  { grid-row: 3; grid-column: 1 / 4; }
+  */
+}
+
+
+/* MOBILE: window up to 640px wide, 1 column and 5 rows */
+@media (max-width: 640px) {
+  body {
+    display: grid;
+    box-sizing: border-box;
+    padding: 10px;
+    gap: 10px;
+    /* page can grow if the content is long, but not shorter than the window */
+    height: auto;
+    min-height: 100vh;
+
+    /* rows: header, article, nav, aside, footer (repeat = nav, aside, footer)
+       article at least 120px = twice the others */
+    grid-template-rows: minmax(60px, auto) minmax(120px, 1fr) repeat(3, minmax(60px, auto));
+  }
+
+  /* article goes second like in figure 2 */
+  header  { order: 1; }
+  article { order: 2; }
+  nav     { order: 3; }
+  aside   { order: 4; }
+  footer  { order: 5; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Header</h1>
+  <!-- tag training attempt, +1 speed maybe -->
+  <p>my first <abbr title="cascading style sheets">css</abbr> grid attempt, attempt number 3 or 4</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#">Navigation</a></li>
+    <li><a href="#">Link 2</a></li>
+    <li><a href="#">Link 3</a></li>
+  </ul>
+</nav>
+
+<article>
+  <h2>Article</h2>
+  <!-- img training, floats to the right, why not -->
+  <img src="sunset.jpg" alt="some sunset photo">
+  <p>This is the main content of the page. On a large screen it sits <strong>between the navigation and the aside</strong>, and on a phone it comes right after the header.</p>
+  <!-- blockquote construction training, for the future -->
+  <blockquote>practice attempt, construction training, future me will understand</blockquote>
+  <p>made with <em>grid</em> and a bit of patience, see <a href="https://developer.mozilla.org/">mdn</a> if confused</p>
+</article>
+
+<aside>
+  <p><em>Aside</em>: some extra info nobody reads</p>
+  <!-- second list type training, ol this time -->
+  <ol>
+    <li>attempt 1</li>
+    <li>attempt 2</li>
+  </ol>
+</aside>
+
+<footer>
+  <!-- date training, time tag practice -->
+  <p>Made by <strong>a beginner</strong>, <time datetime="2026-11">november 2026</time>, probably late at night</p>
+  <p><small>&copy; my practice page, don't judge</small></p>
+</footer>
+
+</body>
+</html>
