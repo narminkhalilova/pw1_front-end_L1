@@ -59,20 +59,6 @@ p {
   margin: 0 0 8px 0;
 }
 
-/* training image, just to try float */
-article img {
-  float: right;
-  width: 90px;
-  margin: 0 0 8px 8px;
-}
-
-/* quote attempt, idk if this looks ok */
-article blockquote {
-  margin: 0 0 8px 0;
-  padding-left: 10px;
-  border-left: 3px solid #999999;
-}
-
 
 /* DESKTOP: window at least 640px wide, 3 columns and 3 rows */
 @media (min-width: 640px) {
@@ -109,7 +95,7 @@ article blockquote {
      header  { grid-row: 1; grid-column: 1 / 4; }
      nav     { grid-row: 2; grid-column: 1 / 2; }
      article { grid-row: 2; grid-column: 2 / 3; }
-     aside    { grid-row: 2; grid-column: 3 / 4; }
+     aside   { grid-row: 2; grid-column: 3 / 4; }
      footer  { grid-row: 3; grid-column: 1 / 4; }
   */
 }
@@ -144,41 +130,27 @@ article blockquote {
 
 <header>
   <h1>Header</h1>
-  <!-- tag training attempt, +1 speed maybe -->
-  <p>my first <abbr title="cascading style sheets">css</abbr> grid attempt, attempt number 3 or 4</p>
 </header>
 
 <nav>
   <ul>
-    <li><a href="#">Navigation</a></li>
-    <li><a href="#">Link 2</a></li>
-    <li><a href="#">Link 3</a></li>
+    <li>Navigation</li>
+    <li>Link 2</li>
+    <li>Link 3</li>
   </ul>
 </nav>
 
 <article>
   <h2>Article</h2>
-  <!-- img training, floats to the right, why not -->
-  <img src="sunset.jpg" alt="some sunset photo">
-  <p>This is the main content of the page. On a large screen it sits <strong>between the navigation and the aside</strong>, and on a phone it comes right after the header.</p>
-  <!-- blockquote construction training, for the future -->
-  <blockquote>practice attempt, construction training, future me will understand</blockquote>
-  <p>made with <em>grid</em> and a bit of patience, see <a href="https://developer.mozilla.org/">mdn</a> if confused</p>
+  <p>This is the main content of the page. On a large screen it sits between the navigation and the aside, and on a phone it comes right after the header.</p>
 </article>
 
 <aside>
-  <p><em>Aside</em>: some extra info nobody reads</p>
-  <!-- second list type training, ol this time -->
-  <ol>
-    <li>attempt 1</li>
-    <li>attempt 2</li>
-  </ol>
+  <p>Aside</p>
 </aside>
 
 <footer>
-  <!-- date training, time tag practice -->
-  <p>Made by <strong>a beginner</strong>, <time datetime="2026-11">november 2026</time>, probably late at night</p>
-  <p><small>&copy; my practice page, don't judge</small></p>
+  <p>Footer</p>
 </footer>
 
 </body>
