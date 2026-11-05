@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>JS exercises</title></head>
+<body>
+<p>Open the console (F12)</p>
+<script>
+// 1 operations
+let a=7,b=2;
+console.log(1,a+b,a-b,a*b,a/b);
+
+// 2 modulo
+console.log(2,5%2,a%b);
+
+// 3 square, cube
+let n=4;
+console.log(3,Math.pow(n,2),Math.pow(n,3));
+
+// 4 rectangle (L, l global, p and s local)
+var L=5,l=3;
+function rect(){var p=2*(L+l),s=L*l;console.log(4,p,s)}
+rect();
+
+// 5 circle
+var R=3;
+console.log(5,2*R,2*Math.PI*R,Math.PI*R*R);
+
+// 6 VAT
+function vat(ht){const rate=0.2;let v=ht*rate;console.log(6,v,ht+v)}
+vat(100);
+
+// 7 days to h, mn, s
+let d=5;
+console.log(7,d*24+'h',d*24*60+'mn',d*86400+'s');
+
+// 8 seconds to d, h, mn, s
+let sec=100000;
+console.log(8,Math.floor(sec/86400)+'d',Math.floor(sec%86400/3600)+'h',Math.floor(sec%3600/60)+'mn',sec%60+'s');
+
+// 9 sequence 8 to 12
+for(let i=8;i<=12;i++)console.log('9 for',i);
+let w=8;
+while(w<=12){console.log('9 while',w);w++}
+let dw=8;
+do{console.log('9 do while',dw);dw++}while(dw<=12);
+
+// 10 even numbers
+for(let i=8;i<=12;i++)if(i%2==0)console.log('10',i);
+
+// 11 multiplication table
+for(let i=1;i<=10;i++)console.log('11',n+' x '+i+' = '+n*i);
+
+// 12 sum, factorial, recursive factorial
+let sum=0,fact=1;
+for(let i=1;i<=n;i++){sum+=i;fact*=i}
+console.log(12,sum,fact);
+function f(x){if(x<=1)return 1;return x*f(x-1)}
+console.log('12 recursive',f(n));
+
+// 13 pi
+for(let N of [1000,10000]){
+  let s=0;
+  for(let i=1;i<=N;i++)s+=1/(i*i);
+  console.log('13',N,Math.sqrt(6*s));
+}
+
+// 14 larger or smaller than 100
+let num=150;
+if(num>100)console.log(14,'larger than 100');
+else if(num<100)console.log(14,'smaller than 100');
+else console.log(14,'equal to 100');
+
+// 15 kayak category
+let age=17;
+if(age<12)console.log(15,'poussin');
+else if(age<14)console.log(15,'benjamin');
+else if(age<16)console.log(15,'minime');
+else if(age<18)console.log(15,'cadet');
+else if(age<20)console.log(15,'junior');
+else if(age<35)console.log(15,'senior');
+else console.log(15,'veteran');
+
+// 16 discount
+let ht=2500,rate=0;
+if(ht>=2000)rate=0.1;
+else if(ht>=1000)rate=0.05;
+let red=ht-ht*rate,tva=red*0.2;
+console.log(16,'rate',rate,'reduced',red,'VAT',tva,'total',red+tva);
+</script>
+</body>
+</html>
