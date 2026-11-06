@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise 1: Equality</title>
+</head>
+<body>
+  <h1>Exercise 1: Equality</h1>
+  <p>Open the console (F12) to see the solutions of A*100+B*10+C = A^3+B^3+C^3.</p>
+  <p><a href="index.html">Back to home</a></p>
+  <script>
+    /*
+      Idea: brute force. Three nested for loops (one per digit A, B, C),
+      each going from 1 to 9 -> 9*9*9 = 729 combinations to test.
+      "let" is used so that a, b, c are local to their loop (block scope).
+      Math.pow(x, 3) is used for the cube.
+
+      Sources consulted: MDN (for statement, Math.pow).
+      The solution below is written by myself.
+    */
+    console.log("Exercise 1: searching A, B, C in [1..9] with ABC = A^3 + B^3 + C^3");
+
+    let found = 0;
+    for (let a = 1; a <= 9; a++) {
+      for (let b = 1; b <= 9; b++) {
+        for (let c = 1; c <= 9; c++) {
+          const number = a * 100 + b * 10 + c * 1;
+          const cubes = Math.pow(a, 3) + Math.pow(b, 3) + Math.pow(c, 3);
+          if (number === cubes) {
+            console.log("Solution: A=" + a + ", B=" + b + ", C=" + c +
+              " -> " + number + " = " + a + "^3 + " + b + "^3 + " + c + "^3 = " + cubes);
+            found++;
+          }
+        }
+      }
+    }
+    console.log(found + " solution(s) found.");
+  </script>
+</body>
+</html>

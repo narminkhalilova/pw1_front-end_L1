@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise 2: Give change back</title>
+</head>
+<body>
+  <h1>Exercise 2: Give change back</h1>
+  <p>Open the console (F12) to see the banknotes returned for several amounts.</p>
+  <p><a href="index.html">Back to home</a></p>
+  <script>
+    /*
+      Greedy algorithm: start with the highest banknote, take as many as possible
+      (Math.floor of the division), keep the remainder (modulo %) for the next banknote.
+
+      banknotesReturned is an Array where the INDEX is the banknote value
+      and the VALUE is the number of banknotes (e.g. banknotesReturned[200] = 1).
+      Indexes that are not banknotes stay empty in the array.
+
+      Sources consulted: MDN (Array, forEach, Math.floor, % operator).
+      The solution below is written by myself.
+    */
+    const banknotes = [200, 100, 50, 20, 10, 5, 1]; // in AZN, highest first
+
+    function giveChange(amount) {
+      if (!Number.isInteger(amount) || amount < 0) {
+        console.log("Invalid amount: " + amount + " (integer >= 0 expected)");
+        return;
+      }
+
+      let remaining = amount;
+      const banknotesReturned = [];
+
+      banknotes.forEach(function (item, index) {
+        banknotesReturned[item] = Math.floor(remaining / item); // how many of this banknote
+        remaining = remaining % item;                            // what is left to give
+      });
+
+      // Display the result (only banknotes actually used)
+      let message = amount + " \u20BC = ";
+      const parts = [];
+      banknotes.forEach(function (item) {
+        if (banknotesReturned[item] > 0) {
+          parts.push(banknotesReturned[item] + " x " + item + " \u20BC");
+        }
+      });
+      message += parts.length > 0 ? parts.join(", ") : "nothing to return";
+      console.log(message);
+      console.log(banknotesReturned); // index = banknote value, value = quantity
+      return banknotesReturned;
+    }
+
+    giveChange(369); // example of the assignment: 200+100+50+10+5+4x1
+    giveChange(1);
+    giveChange(48);
+    giveChange(1000);
+    giveChange(0);
+    giveChange(12.5); // invalid: not an integer
+  </script>
+</body>
+</html>

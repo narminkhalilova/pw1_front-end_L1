@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise 3: Luhn algorithm</title>
+</head>
+<body>
+  <h1>Exercise 3: Luhn algorithm</h1>
+  <p>Open the console (F12) to see the validation of each credit card number.</p>
+  <p><a href="index.html">Back to home</a></p>
+  <script>
+    /*
+      Luhn algorithm (OOJS methodology):
+        1. Number -> String                  : toString()
+        2. Extract the check digit (last)    : substring() + length
+        3. Extract the payload (all the rest): substring() + length
+        4. String -> Array of digits         : split('')
+        5. Start from the right              : reverse()
+        6. Apply Luhn on each digit          : forEach()
+             - every second digit starting from the rightmost one is doubled
+             - if the doubled value is > 9, subtract 9 (e.g. 14 -> 1+4 = 5 = 14-9)
+             - add everything to the sum
+        7. Check digit = (10 - (sum mod 10)) mod 10
+        8. The number is valid if the calculated digit equals the last digit.
+
+      Sources consulted: Wikipedia (Luhn algorithm), MDN (String, Array, parseInt),
+      simplycalc.com (to verify results). The code below is written by myself.
+    */
+    function luhn(fullCode) {
+      // 1. Make sure we work with a String
+      const fullString = fullCode.toString();
+
+      // 2. Last character = check digit (given with the number)
+      const givenDigit = parseInt(fullString.substring(fullString.length - 1), 10);
+
+      // 3. Payload = everything except the last character
+      const payload = fullString.substring(0, fullString.length - 1);
+
+      // 4 + 5. String -> Array of characters, then reverse (rightmost digit first)
+      const digits = payload.split('').reverse();
+
+      // 6. Luhn calculation
+      let sum = 0;
+      digits.forEach(function (item, index) {
+        let value = parseInt(item, 10);
+        if (index % 2 === 0) {            // every second digit, starting with the rightmost
+          value = value * 2;
+        }
+        sum += (value > 9) ? value - 9 : value;  // ternary: sum of the digits of 10..18
+      });
+
+      // 7. Calculated check digit
+      const checkDigit = (10 - (sum % 10)) % 10;
+
+      // 8. Result
+      const result = (checkDigit === givenDigit) ? "Validated" : "Not Validated";
+      console.log("Card: " + fullString + " | Check digit: " + checkDigit + " | " + result);
+      return result;
+    }
+
+    console.log("--- Example from the course (Wikipedia) ---");
+    luhn(17893729974);          // typeof Number -> converted by toString()
+
+    console.log("--- Visa ---");
+    ["4556483529563734", "4716589440775905", "4485747130099965",
+     "4485287305655689", "4556637036454105"].forEach(luhn);
+
+    console.log("--- Mastercard ---");
+    ["5355201015310653", "5118042393495700", "5164667492924672",
+     "5489502250298050", "5597840998694365"].forEach(luhn);
+
+    console.log("--- American Express ---");
+    ["375412915808533", "374230327989555", "345853063509893",
+     "373985296422836", "379540387033242"].forEach(luhn);
+
+    console.log("--- Invalid numbers (last digit changed on purpose) ---");
+    ["4556483529563735", "375412915808534", "17893729975"].forEach(luhn);
+  </script>
+</body>
+</html>
