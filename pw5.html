@@ -1,108 +1,79 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>quiz form</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML5 Web Form Quiz</title>
 <style>
-/* same font everywhere, like in the course */
-body, input, button, select, textarea {
-  font-family: verdana;
-  font-size: 1em;
-}
-/* label width, from the course slides */
-.champ1 {
-  display: inline-block;
-  width: 120px;
-}
-/* fieldset style, from the course slides */
-fieldset {
-  width: 450px;
-  border: 1px solid red;
-  border-radius: 15px;
-  margin: 5px 10px;
-  line-height: 35px;
-}
-/* red border if bad, green if ok */
-input[required]:invalid {
-  border: 2px red solid;
-}
-input[required]:valid {
-  border: 2px green solid;
-}
+/* font for the whole page and the form controls */
+body, input, button, select, textarea {font-family: Verdana; font-size: 1em;}
+/* labels same width so the fields are aligned */
+.champ1 {display: inline-block; width: 120px;}
+/* box around the student fields, red border and round corners */
+fieldset {width: 450px; border: 1px solid red; border-radius: 15px; margin: 5px 10px; line-height: 35px;}
+/* red border if the field is not valid */
+input[type="text"]:invalid, input[type="email"]:invalid {border: 2px solid red;}
+/* green border if the field is valid */
+input[type="text"]:valid, input[type="email"]:valid {border: 2px solid green;}
+/* the date field does not work in all browsers (old ones, partly Safari) and no placeholder on it, the validator does not like it */
 </style>
 </head>
 <body>
+<h1>HTML Web Form Quiz</h1>
+<p>This quiz is about HTML and web forms. First write your name and email,
+then answer the questions and click Send. The answers are shown by a PHP script.
+Fields with a star (*) are mandatory.</p>
 
-<!-- title -->
-<h1>html/css quiz</h1>
-
-<!-- small explanation -->
-<p>small quiz on html and css. fill the fields and press send.</p>
-
-<!-- the form, data goes to the php script -->
 <form action="senddata.php" method="post">
 
-  <!-- student info -->
-  <fieldset>
-    <legend>contact</legend>
+<fieldset>
+<legend>Student</legend>
+<label for="lastname" class="champ1">Last name *</label><input type="text" name="lastname" id="lastname" placeholder="Your last name" required><br>
+<label for="firstname" class="champ1">First name *</label><input type="text" name="firstname" id="firstname" placeholder="Your first name" required><br>
+<label for="email" class="champ1">Email *</label><input type="email" name="email" id="email" placeholder="prefix@domain.com" pattern=".+@.+\..+" title="prefix@domain.topLevelDomain" required><br>
+</fieldset>
 
-    <!-- lastname -->
-    <label for="lastname" class="champ1">lastname</label>
-    <input type="text" id="lastname" name="lastname" placeholder="your last name" required><br>
+<p>
+<label for="quizdate">Date of the quiz *</label>
+<input type="date" name="quizdate" id="quizdate" required> (dd/mm/yyyy)
+</p>
 
-    <!-- firstname -->
-    <label for="firstname" class="champ1">firstname</label>
-    <input type="text" id="firstname" name="firstname" placeholder="your first name" required><br>
+<p>Question 1 : What does HTML stand for? *</p>
+<input type="radio" name="html" id="r1" value="1" required><label for="r1">Hyper Text Markup Language</label><br>
+<input type="radio" name="html" id="r2" value="2"><label for="r2">High Tech Modern Language</label><br>
+<input type="radio" name="html" id="r3" value="3"><label for="r3">Home Tool Markup Language</label><br>
 
-    <!-- email, pattern like in the slides -->
-    <label for="email" class="champ1">email</label>
-    <input type="email" id="email" name="email" placeholder="prefix@domain.topLevelDomain" pattern=".+@.+\..+" required><br>
-  </fieldset>
+<p>Question 2 : Which of these are form elements? (you can choose several)</p>
+<input type="checkbox" name="cb[]" id="cb1" value="input"><label for="cb1">input</label><br>
+<input type="checkbox" name="cb[]" id="cb2" value="select"><label for="cb2">select</label><br>
+<input type="checkbox" name="cb[]" id="cb3" value="table"><label for="cb3">table</label><br>
+<input type="checkbox" name="cb[]" id="cb4" value="textarea"><label for="cb4">textarea</label><br>
 
-  <!-- date of the quiz. no placeholder, w3c gives error on date. not everywhere supported (safari), so no required -->
-  <label for="qdate" class="champ1">date</label>
-  <input type="date" id="qdate" name="qdate"><br>
+<p>
+<label for="language">Question 3 : Which language do you prefer? *</label><br>
+<select name="language" id="language" required>
+<option value="">-- Choose --</option>
+<optgroup label="Front-end">
+<option value="html">HTML</option>
+<option value="css">CSS</option>
+<option value="js">JavaScript</option>
+</optgroup>
+<optgroup label="Back-end">
+<option value="php">PHP</option>
+<option value="python">Python</option>
+<option value="java">Java</option>
+</optgroup>
+</select>
+</p>
 
-  <!-- single choice question () -->
-  <span class="champ1">radio</span>
-  <label for="radio1">radio 1</label>
-  <input type="radio" name="radio" id="radio1" value="1" required>
-  <label for="radio2">radio 2</label>
-  <input type="radio" name="radio" id="radio2" value="2" required>
-  <label for="radio3">radio 3</label>
-  <input type="radio" name="radio" id="radio3" value="3" required><br>
+<p>
+<label for="code">Question 4 : Write a small example of HTML or CSS code</label><br>
+<textarea name="code" id="code" rows="6" cols="50" placeholder="Type your HTML or CSS code here..."></textarea>
+</p>
 
-  <!-- multiple choice question, name with [] so php gets an array -->
-  <span class="champ1">checkbox</span>
-  <label for="cb1">cb 1</label>
-  <input type="checkbox" name="cb[]" id="cb1" value="1">
-  <label for="cb2">cb 2</label>
-  <input type="checkbox" name="cb[]" id="cb2" value="2">
-  <label for="cb3">cb 3</label>
-  <input type="checkbox" name="cb[]" id="cb3" value="3"><br>
-
-  <!-- dropdown with groups, first empty option so required works -->
-  <label for="listselect" class="champ1">select</label>
-  <select name="listselect" id="listselect" required>
-    <option value="">-- choose --</option>
-    <optgroup label="group1">
-      <option value="1.1">option 1.1</option>
-      <option value="1.2">option 1.2</option>
-    </optgroup>
-    <optgroup label="group2">
-      <option value="2.1">option 2.1</option>
-      <option value="2.2">option 2.2</option>
-    </optgroup>
-  </select><br>
-
-  <!-- textarea for code, not required -->
-  <label for="code" class="champ1">comment</label>
-  <textarea name="code" id="code" rows="5" cols="40" placeholder="put some html or css code here..."></textarea><br>
-
-  <!-- submit button -->
-  <p><button type="submit">send</button></p>
+<button type="submit">Send</button>
+<button type="reset">Reset</button>
 
 </form>
-
 </body>
 </html>
