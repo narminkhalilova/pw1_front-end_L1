@@ -4,7 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>driving experience assistant</title>
-<link rel="stylesheet" href="style.css">
+<style>
+/* same font everywhere, form fields too */
+body, input, select, button {font-family: verdana, sans-serif; font-size: 1em;}
+body {margin: 0; background-color: #eeeeee; color: #222222;}
+/* header and footer take the full width */
+header, footer {background-color: #555555; color: #ffffff; text-align: center; padding: 15px;}
+header h1 {margin: 0; font-size: 1.4em;}
+footer {font-size: 0.8em; margin-top: 20px;}
+footer p {margin: 5px 0;}
+/* main is centered and small, good for a phone */
+main {max-width: 500px; margin: 0 auto; padding: 0 15px;}
+form {background-color: #ffffff; border: 1px solid #555555; border-radius: 4px; padding: 15px;}
+/* on a phone the label is above the field */
+.field {display: grid; grid-template-columns: 1fr; margin-bottom: 15px;}
+label {margin-bottom: 5px;}
+input, select {width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #999999; border-radius: 3px;}
+button {width: 100%; padding: 12px; background-color: #555555; color: #ffffff; border: none; border-radius: 3px; cursor: pointer;}
+/* on a bigger screen the label goes on the left */
+@media (min-width: 600px) {
+  .field {grid-template-columns: 140px 1fr; align-items: center;}
+  label {margin-bottom: 0;}
+}
+</style>
 </head>
 <body>
 
@@ -13,65 +35,61 @@
 </header>
 
 <main>
-<p>fill in the form to record a driving experience. all the fields are mandatory.</p>
-
+<section>
+<h2>new driving experience</h2>
 <form>
-<p>
-<label for="iddate">date</label>
-<input type="date" id="iddate" required>
-</p>
-<p>
-<label for="idstart">start time</label>
-<input type="time" id="idstart" required>
-</p>
-<p>
-<label for="idend">end time</label>
-<input type="time" id="idend" required>
-</p>
-<p>
-<label for="idweather">weather</label>
-<select id="idweather" required>
+
+<div class="field">
+<label for="date">date</label>
+<input type="date" id="date" required>
+</div>
+
+<div class="field">
+<label for="startingTime">start time</label>
+<input type="time" id="startingTime" required>
+</div>
+
+<div class="field">
+<label for="endingTime">end time</label>
+<input type="time" id="endingTime" required>
+</div>
+
+<div class="field">
+<label for="idWeather">weather</label>
+<select id="idWeather" name="idWeather" required>
 <option value="">-- choose --</option>
 <option value="1">sunny</option>
-<option value="2">cloudy</option>
-<option value="3">windy</option>
-<option value="4">rainy</option>
-<option value="5">snowy</option>
-<option value="6">foggy</option>
+<option value="2">rainy</option>
+<option value="3">cloudy</option>
+<option value="4">windy</option>
+<option value="5">foggy</option>
 </select>
-</p>
-<p>
-<label for="idroad">road type</label>
-<select id="idroad" required>
+</div>
+
+<div class="field">
+<label for="idRoad">road type</label>
+<select id="idRoad" name="idRoad" required>
 <option value="">-- choose --</option>
 <option value="1">city</option>
-<option value="2">country road</option>
-<option value="3">highway</option>
-<option value="4">mountain road</option>
+<option value="2">highway</option>
+<option value="3">mountain</option>
 </select>
-</p>
-<p>
-<label for="idtraffic">traffic</label>
-<select id="idtraffic" required>
-<option value="">-- choose --</option>
-<option value="1">light</option>
-<option value="2">moderate</option>
-<option value="3">heavy</option>
-</select>
-</p>
-<p>
-<label for="idkm">mileage (km)</label>
-<input type="number" id="idkm" min="0" step="0.1" inputmode="decimal" placeholder="12.5" required>
-</p>
-<p>
-<button type="button" id="idsave">save</button>
-</p>
+</div>
+
+<div class="field">
+<label for="distance">distance (km)</label>
+<input type="number" id="distance" min="0" max="2000" step="0.1" placeholder="35" required>
+</div>
+
+<button type="button">save</button>
+
 </form>
+</section>
 </main>
 
 <footer>
-<p>author: your name here, ufaz l1 computer science</p>
-<p>&copy; 2026 front-end course, university of strasbourg - ufaz. all rights reserved.</p>
+<p>author: your name, ufaz baku, l1 front-end 2026</p>
+<p>&copy; 2026 your name, all rights reserved</p>
 </footer>
 
 </body>
