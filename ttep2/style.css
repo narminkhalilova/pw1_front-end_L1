@@ -1,0 +1,31 @@
+/* same font as the previous forms, mobile first */
+body {font-family: verdana, sans-serif; font-size: 1em; margin: 0; background-color: #f4f4f4; color: #222;}
+
+/* header and footer have the same blue band */
+header, footer {background-color: #1f3a5f; color: white; text-align: center; padding: 15px;}
+header h1 {margin: 0; font-size: 1.4em;}
+footer {font-size: 0.8em;}
+footer p {margin: 5px 0;}
+
+/* the form is centered and not too wide on a big screen */
+main {max-width: 500px; margin: 0 auto; padding: 15px;}
+
+/* one row under the other, grid does the spacing */
+form {display: grid; gap: 15px;}
+form p {margin: 0; display: grid; gap: 5px;}
+
+/* big fields so it is easy to touch on a phone */
+input, select, button {font-family: verdana, sans-serif; font-size: 1em; width: 100%; min-height: 44px; padding: 8px; box-sizing: border-box; border: 2px solid #999; border-radius: 6px;}
+
+/* red if not valid, green if valid, like the previous form */
+input:invalid, select:invalid {border-color: red;}
+input:valid, select:valid {border-color: green;}
+
+/* save button */
+button {background-color: #1f3a5f; color: white; border-color: #1f3a5f; cursor: pointer;}
+button:hover {background-color: #2f5a94;}
+
+/* on a bigger screen the label is on the left of the field */
+@media (min-width: 600px) {
+  form p {grid-template-columns: 140px 1fr; align-items: center;}
+}
