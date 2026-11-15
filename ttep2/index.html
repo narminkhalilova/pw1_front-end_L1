@@ -3,24 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="web form to record an accompanied driving experience">
+<meta name="author" content="Narmin Khalilova">
 <title>driving experience assistant</title>
 <style>
 /* same font everywhere, form fields too */
 body, input, select, button {font-family: verdana, sans-serif; font-size: 1em;}
-body {margin: 0; background-color: #eeeeee; color: #222222;}
+/* body is a column so the footer stays at the bottom of the screen */
+body {margin: 0; min-height: 100vh; display: flex; flex-direction: column; background-color: #eeecf1; color: #2a2733;}
 /* header and footer take the full width */
-header, footer {background-color: #555555; color: #ffffff; text-align: center; padding: 15px;}
+header, footer {background-color: #625b73; color: #ffffff; text-align: center; padding: 15px;}
 header h1 {margin: 0; font-size: 1.4em;}
-footer {font-size: 0.8em; margin-top: 20px;}
+footer {font-size: 0.8em;}
 footer p {margin: 5px 0;}
 /* main is centered and small, good for a phone */
-main {max-width: 500px; margin: 0 auto; padding: 0 15px;}
-form {background-color: #ffffff; border: 1px solid #555555; border-radius: 4px; padding: 15px;}
+main {flex: 1; width: 100%; max-width: 500px; box-sizing: border-box; margin: 0 auto; padding: 0 15px 20px;}
+form {background-color: #ffffff; border: 1px solid #9a93a8; border-radius: 4px; padding: 15px;}
+.note {margin: 0 0 15px; font-size: 0.85em; color: #4f4960;}
+/* groups of fields */
+fieldset {min-width: 0; margin: 0 0 15px; padding: 10px 15px 3px; border: 1px solid #cfcad8; border-radius: 4px;}
+legend {padding: 0 5px; color: #4f4960;}
 /* on a phone the label is above the field */
-.field {display: grid; grid-template-columns: 1fr; margin-bottom: 15px;}
+.field {display: grid; grid-template-columns: 1fr; margin-bottom: 12px;}
 label {margin-bottom: 5px;}
-input, select {width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #999999; border-radius: 3px;}
-button {width: 100%; padding: 12px; background-color: #555555; color: #ffffff; border: none; border-radius: 3px; cursor: pointer;}
+input, select {width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #9a93a8; border-radius: 3px; background-color: #ffffff;}
+input:focus, select:focus {outline: 2px solid #625b73; outline-offset: 1px;}
+button {width: 100%; padding: 12px; background-color: #625b73; color: #ffffff; border: none; border-radius: 3px; cursor: pointer;}
+button:hover, button:focus {background-color: #4f4960;}
 /* on a bigger screen the label goes on the left */
 @media (min-width: 600px) {
   .field {grid-template-columns: 140px 1fr; align-items: center;}
@@ -38,6 +47,10 @@ button {width: 100%; padding: 12px; background-color: #555555; color: #ffffff; b
 <section>
 <h2>new driving experience</h2>
 <form>
+<p class="note">all fields are required</p>
+
+<fieldset>
+<legend>date and time</legend>
 
 <div class="field">
 <label for="date">date</label>
@@ -53,6 +66,11 @@ button {width: 100%; padding: 12px; background-color: #555555; color: #ffffff; b
 <label for="endingTime">end time</label>
 <input type="time" id="endingTime" required>
 </div>
+
+</fieldset>
+
+<fieldset>
+<legend>driving conditions</legend>
 
 <div class="field">
 <label for="idWeather">weather</label>
@@ -92,10 +110,17 @@ button {width: 100%; padding: 12px; background-color: #555555; color: #ffffff; b
 </select>
 </div>
 
+</fieldset>
+
+<fieldset>
+<legend>mileage</legend>
+
 <div class="field">
 <label for="distance">distance (km)</label>
-<input type="number" id="distance" min="0" max="2000" step="0.1" placeholder="35" required>
+<input type="number" id="distance" min="0" max="2000" step="0.1" inputmode="decimal" placeholder="35" required>
 </div>
+
+</fieldset>
 
 <button type="button">save</button>
 
